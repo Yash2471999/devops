@@ -1,34 +1,50 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Please enter the vaule of a"
-read a
-echo "Please enter the vaule of b"
-read b
+# Simple Calculator Script
 
-if [ $a != $b ]
-then
- echo "$a != $b : a is not equal to b"
-else
- echo "$a = $b: a is equal to b"
-fi
+echo "Welcome to the Calculator!"
 
-if [ $a -lt 100 -a $b -gt 15 ]
-then
- echo "$a -lt 100 -a $b -gt 15 : returns true"
-else
- echo "$a -lt 100 -a $b -gt 15 : returns false"
-fi
+# Get first number
+read -p "Enter the first number: " num1
 
-if [ $a -lt 100 -o $b -gt 100 ]
-then
- echo "$a -lt 100 -o $b -gt 100 : returns true"
-else
- echo "$a -lt 100 -o $b -gt 100 : returns false"
-fi
+# Get second number
+read -p "Enter the second number: " num2
 
-if [ $a -lt 5 -o $b -gt 100 ]
-then
- echo "$a -lt 100 -o $b -gt 100 : returns true"
-else
- echo "$a -lt 100 -o $b -gt 100 : returns false"
-fi
+# Show menu of operations
+echo "Choose an operation:"
+echo "1. Addition (+)"
+echo "2. Subtraction (-)"
+echo "3. Multiplication (*)"
+echo "4. Division (/)"
+
+read -p "Enter your choice (1/2/3/4): " choice
+
+# Perform calculation based on user choice
+case $choice in
+    1)
+        result=$((num1 + num2))
+        echo "Result: $num1 + $num2 = $result"
+        ;;
+    2)
+        result=$((num1 - num2))
+        echo "Result: $num1 - $num2 = $result"
+        ;;
+    3)
+        result=$((num1 * num2))
+        echo "Result: $num1 * $num2 = $result"
+        ;;
+    4)
+        # Check if dividing by zero
+        if [ "$num2" -eq 0 ]; then
+            echo "Error: Division by zero is not allowed!"
+        else
+            result=$(echo "scale=2; $num1 / $num2" | bc)
+            echo "Result: $num1 / $num2 = $result"
+        fi
+        ;;
+    *)
+        echo "Invalid choice. Please select 1, 2, 3, or 4."
+        ;;
+esac
+
+
