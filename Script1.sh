@@ -1,7 +1,7 @@
 #!/bin/bash
 #This is my 1st shell script to print output
 echo 2+1
-echo "Hello Yash"
+echo "Hello Yash 1"
 echo "Updated File By Me"
 echo "Hello All, Welcome to AWS/Devops Class"
 echo "Hello, How are you?"
