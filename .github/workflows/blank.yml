@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Make script executable
-        run: chmod +x Script1.sh
+        run: chmod +x ./Script1.sh
 
       - name: Run the shell script
-        run: Script1.sh
+        run: ./Script1.sh
