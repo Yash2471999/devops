@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ "yash24" ]
+  pull_request:
+    branches: [ "yash24" ]
+
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Make script executable
+        run: chmod +x ./Script1.sh
+
+      - name: Run the shell script
+        run: ./Script1.sh
