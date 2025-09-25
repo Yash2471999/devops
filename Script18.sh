@@ -4,7 +4,7 @@ number_one () {
  number_two
 }
 number_two () {
- echo "This is now the second function speaking..."
+ echo "This is now the third function function speaking..."
 }
 # Calling function one.
 number_one
